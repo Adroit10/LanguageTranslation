@@ -10,10 +10,10 @@ def fetch_translation_data(dataset_name="opus100",lang_pair=("en","es"),num_samp
     dataset = dataset.shuffle(seed=42).select(range(min(num_samples,len(dataset))))
 
     return [
-        {"input_text": example["translation"][lang_pair[0]], "taget_text": example["translation"][lang_pair[1]]} for example in dataset
+        {"input_text": example["translation"][lang_pair[0]], "target_text": example["translation"][lang_pair[1]]} for example in dataset
     ]
 
-def save_data_to_json(data,file_path="./data/train_data.json"):
+def save_data_to_json(data,file_path="./translation_project/data/train_data.json"):
     os.makedirs(os.path.dirname(file_path),exist_ok=True)
     with open(file_path,'w',encoding="utf-8") as f:
         json.dump(data,f,ensure_ascii=False,indent=4)
@@ -25,8 +25,8 @@ def data_collection():
     val_data = fetch_translation_data(num_samples=2000)
 
     print("saving training and validation data")
-    save_data_to_json(train_data,"data/train_data.json")
-    save_data_to_json(val_data,"data/val_data.json")
+    save_data_to_json(train_data,"translation_project/data/train_data.json")
+    save_data_to_json(val_data,"translation_project/data/val_data.json")
 
     print("data collection complete")
 

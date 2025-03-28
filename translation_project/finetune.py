@@ -5,7 +5,7 @@ import os
 def fine_tune_model():
     train_dataset,val_dataset = get_dataset()
 
-    model_path = "./models/fine_tuned_translation_model_v2"
+    model_path = "./translation_project/models/fine_tuned_translation_model_v2"
     if os.path.exists(model_path):
         tokenizer = MarianTokenizer.from_pretrained(model_path)
         model=MarianMTModel.from_pretrained(model_path)

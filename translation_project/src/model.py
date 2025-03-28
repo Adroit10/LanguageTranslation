@@ -2,7 +2,7 @@ from transformers import MarianMTModel,MarianTokenizer
 import torch
 
 class TranslationModel:
-    def __init__(self,model_path="./models/fine_tuned_translation_model_v2"):
+    def __init__(self,model_path="./translation_project/models/fine_tuned_translation_model_v2"):
         # loads tokenizer and model
         self.tokenizer = MarianTokenizer.from_pretrained(model_path)
         self.model = MarianMTModel.from_pretrained(model_path)

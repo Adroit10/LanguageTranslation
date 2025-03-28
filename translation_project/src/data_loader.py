@@ -23,7 +23,7 @@ def preprocess_data(data):
 
     })
 
-def get_dataset(train_path="data/train_data.json",val_path = "data/val_data.json"):
+def get_dataset(train_path="translation_project/data/train_data.json",val_path = "translation_project/data/val_data.json"):
     train_data = preprocess_data(load_data(train_path))
     val_data =preprocess_data(load_data(val_path))
     return train_data, val_data
