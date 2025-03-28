@@ -11,7 +11,7 @@ def load_data(file_path):
         print(f"{file_path} not found running data collection pipeline")
         data_collection()
 
-    with open(file_path,r,encoding="utf-8") as f:
+    with open(file_path,'r',encoding="utf-8") as f:
         data = json.load(f)
     return data
 

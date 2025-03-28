@@ -6,11 +6,11 @@ import os
 
 def fetch_translation_data(dataset_name="opus100",lang_pair=("en","es"),num_samples=5000):
     dataset= load_dataset(dataset_name,f"{lang_pair[0]}-{lang_pair[1]}",split="train")
-
+    print("\n Sample Data Structure:",dataset[0])
     dataset = dataset.shuffle(seed=42).select(range(min(num_samples,len(dataset))))
 
     return [
-        {"input_text": example[lang_pair[0]], "taget_text": example[lang_pair[1]]} for example in dataset
+        {"input_text": example["translation"][lang_pair[0]], "taget_text": example["translation"][lang_pair[1]]} for example in dataset
     ]
 
 def save_data_to_json(data,file_path="./data/train_data.json"):
